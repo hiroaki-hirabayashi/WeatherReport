@@ -7,8 +7,13 @@
 
 import UIKit
 
-class MainWeatherViewController: UIViewController {
-
+final class MainWeatherViewController: UIViewController {
+    
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var conditionImageView: UIImageView!
+    @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
