@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Weather View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="dgr-vW-xt4">
             <objects>
-                <viewController id="GCL-Pg-2Fh" customClass="MainWeatherViewController" customModule="WeatherReport" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GCL-Pg-2Fh" customClass="WeatherViewController" customModule="WeatherReport" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rWc-OP-bhO">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

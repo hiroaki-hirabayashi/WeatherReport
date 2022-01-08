@@ -7,8 +7,10 @@
 
 import UIKit
 
-final class MainWeatherViewController: UIViewController {
-    
+final class WeatherViewController: UIViewController {
+
+//MARK: - Property
+
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var conditionImageView: UIImageView!
     @IBOutlet private weak var temperatureLabel: UILabel!
@@ -19,7 +21,7 @@ final class MainWeatherViewController: UIViewController {
         searchTextField.delegate = self
     }
 
-    @IBAction func searchButtonPressed(_ sender: Any) {
+    @IBAction private func searchButtonPressed(_ sender: Any) {
         print(searchTextField.text!)
         searchTextField.endEditing(true)
     }
@@ -28,7 +30,7 @@ final class MainWeatherViewController: UIViewController {
 
 //MARK: - UITextFieldDelegate
 
-extension MainWeatherViewController: UITextFieldDelegate {
+extension WeatherViewController: UITextFieldDelegate {
     
     // エンターキーを押した時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -39,6 +41,7 @@ extension MainWeatherViewController: UITextFieldDelegate {
     
     // 入力しないでエンターした時
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        // TextFieldが空ではなかったらtrue 空だったらfalse
         if textField.text != "" {
             return true
         } else {
