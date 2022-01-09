@@ -14,10 +14,11 @@ protocol WeatherManagerDelegate {
 }
 
 struct WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=fb589579e225162c8fde28b70819da5f&units=metric&lang=ja"
     
     var delegate: WeatherManagerDelegate?
     
+    // 都市名を取得する
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
         performRequest(with: urlString)
@@ -28,24 +29,32 @@ struct WeatherManager {
         performRequest(with: urlString)
     }
     
+    // URLSessionでAPI通信
     func performRequest(with urlString: String) {
+        // URLを作成
         if let url = URL(string: urlString) {
+            // URLSessionを作成
             let session = URLSession(configuration: .default)
+            // dataTask
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 if let safeData = data {
+                    // JSONを解析する
                     if let weather = self.parseJSON(safeData) {
                         self.delegate?.didUpdateWeather(self, weather: weather)
+                        print(weather)
                     }
                 }
             }
+            // スタート
             task.resume()
         }
     }
     
+    // JSONを解析する
     func parseJSON(_ weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         do {
