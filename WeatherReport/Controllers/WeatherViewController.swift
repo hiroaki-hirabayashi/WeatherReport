@@ -88,12 +88,13 @@ extension WeatherViewController: WeatherManagerDelegate {
         print(error)
     }
 }
-
+//35.875230, 139.670674 さいたま
+//35.702069、139.775327 サンフランシスコ
 //MARK: - CLLocationManagerDelegate
 
 extension WeatherViewController: CLLocationManagerDelegate {
     
-    @IBAction func locationPressed(_ sender: UIButton) {
+    @IBAction private func locationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
     }
     

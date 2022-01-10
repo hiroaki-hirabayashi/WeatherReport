@@ -30,17 +30,19 @@ struct WeatherManager {
     }
     
     // URLSessionでAPI通信
-    func performRequest(with urlString: String) {
+    private func performRequest(with urlString: String) {
         // URLを作成
         if let url = URL(string: urlString) {
             // URLSessionを作成
             let session = URLSession(configuration: .default)
             // dataTask
             let task = session.dataTask(with: url) { (data, response, error) in
+                // errorが!=nilだったら(errorだったら)
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
                     return
                 }
+                
                 if let safeData = data {
                     // JSONを解析する
                     if let weather = self.parseJSON(safeData) {
@@ -55,7 +57,7 @@ struct WeatherManager {
     }
     
     // JSONを解析する
-    func parseJSON(_ weatherData: Data) -> WeatherModel? {
+    private func parseJSON(_ weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
