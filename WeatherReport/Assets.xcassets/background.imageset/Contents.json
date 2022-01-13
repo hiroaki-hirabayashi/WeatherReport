@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "light_background.pdf",
+      "filename" : "marek-piwnicki-r0jYc_hUlqw-unsplash.jpg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "light_background-1.pdf",
+      "filename" : "marek-piwnicki-r0jYc_hUlqw-unsplash-1.jpg",
       "idiom" : "universal"
     },
     {
@@ -21,15 +21,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "dark_background.pdf",
+      "filename" : "harold-wainwright-Bqip9io1wgg-unsplash.jpg",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }
